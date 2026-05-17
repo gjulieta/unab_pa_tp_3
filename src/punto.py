@@ -1,4 +1,4 @@
-#crear la clase punto#
+#NIVEL 1/ crear la clase punto#
 class Punto:
     def __init__(self, x, y):
         self.x = x
