@@ -1,11 +1,17 @@
 #NIVEL 4 / CREAR LA CLASE LIBRO
 from src.persona import Persona
 
-
 class Libro:
-    def __init__(self, titulo, autor, ISBN,paginas,edicion, editorial,lugar,fecha_edicion):
+    
+    def __init__(self, titulo="", autor=None, ISBN="", paginas=0, edicion="", editorial="", lugar="", fecha_edicion=""):
         self.titulo = titulo
-        self.autor = autor if autor is not None else Persona("")
+        
+        # TRUCO CLAVE: Si lo que nos pasaron es un texto (str), fabricamos la Persona acá adentro
+        if isinstance(autor, str):
+            self.autor = Persona(autor)
+        else:
+            self.autor = autor if autor is not None else Persona("")
+            
         self.ISBN = ISBN    
         self.paginas = paginas
         self.edicion = edicion
